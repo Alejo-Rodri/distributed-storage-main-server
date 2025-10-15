@@ -123,6 +123,35 @@
 							<options>@generated=omit</options>
 						</binaryMavenPlugin>
 					</binaryMavenPlugins>
+
+                    <!-- Directorio donde guardas tus archivos .proto -->
+                    <inputDirectories>
+                        <inputDirectory>src/main/proto</inputDirectory>
+                    </inputDirectories>
+
+                    <!-- Carpeta de salida de las clases Java generadas -->
+                    <outputTargets>
+                        <outputTarget>
+                            <type>java</type>
+                            <outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>
+                        </outputTarget>
+                        <outputTarget>
+                            <type>grpc-java</type>
+                            <pluginId>grpc-java</pluginId>
+                            <outputDirectory>${project.build.directory}/generated-sources/protobuf/grpc-java</outputDirectory>
+                        </outputTarget>
+                    </outputTargets>
+
+                    <!-- Indica al compilador que agregue esos paths como fuentes -->
+                    <addCompileSourceRoots>true</addCompileSourceRoots>
+
+                    <binaryMavenPlugins>
+                        <binaryMavenPlugin>
+                            <groupId>io.grpc</groupId>
+                            <artifactId>protoc-gen-grpc-java</artifactId>
+                            <version>${grpc.version}</version>
+                        </binaryMavenPlugin>
+                    </binaryMavenPlugins>
 				</configuration>
 				<executions>
 					<execution>

@@ -2,7 +2,7 @@ package co.edu.upb.distributed_storage_main_server.controller;
 
 import co.edu.upb.distributed_storage_main_server.DTOs.file.*;
 import co.edu.upb.distributed_storage_main_server.repository.FileRepository;
-import co.edu.upb.distributed_storage_main_server.services.IFileServices;
+import co.edu.upb.distributed_storage_main_server.services.file.IFileServices;
 import co.edu.upb.distributed_storage_main_server.utils.Singleton;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
