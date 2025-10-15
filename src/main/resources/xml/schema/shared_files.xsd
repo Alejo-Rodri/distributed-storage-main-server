@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <xs:element name="shared_file">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="entry" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" type="xs:long"/>
+                            <xs:element name="file_id" type="xs:long" minOccurs="0"/>
+                            <xs:element name="directory_id" type="xs:long" minOccurs="0"/>
+                            <xs:element name="shared_with_id" type="xs:long"/>
+                            <xs:element name="permission" type="permissionType" minOccurs="0"/>
+                            <xs:element name="created_at" type="xs:dateTime" minOccurs="0"/>
+                        </xs:sequence>
+
+                        <xs:attribute name="fk_shared_file" type="xs:long" use="optional"/>
+                        <xs:attribute name="fk_shared_directory" type="xs:long" use="optional"/>
+                        <xs:attribute name="fk_shared_user" type="xs:long" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="permissionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="READ"/>
+            <xs:enumeration value="WRITE"/>
+            <xs:enumeration value="OWNER"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

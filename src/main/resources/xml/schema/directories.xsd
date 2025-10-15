@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <xs:element name="directory">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="entry" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" type="xs:long"/>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="parent_id" type="xs:long" minOccurs="0"/>
+                            <xs:element name="owner_id" type="xs:long"/>
+                            <xs:element name="created_at" type="xs:dateTime" minOccurs="0"/>
+                            <xs:element name="updated_at" type="xs:dateTime" minOccurs="0"/>
+                        </xs:sequence>
+
+                        <xs:attribute name="fk_directory_parent" type="xs:long" use="optional"/>
+                        <xs:attribute name="fk_directory_owner" type="xs:long" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
