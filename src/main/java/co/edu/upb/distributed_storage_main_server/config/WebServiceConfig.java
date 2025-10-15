@@ -57,4 +57,21 @@ public class WebServiceConfig implements WsConfigurer {
     public XsdSchema helloSchema() {
         return new SimpleXsdSchema(new ClassPathResource(Singleton.HELLO_XSD_LOCATION));
     }
+
+    @Bean(name = "directory")
+    public DefaultWsdl11Definition directoryWsdl(XsdSchema directorySchema) {
+        var definition = new DefaultWsdl11Definition();
+        definition.setPortTypeName("DirectoryPort");
+        definition.setLocationUri("/ws");
+        definition.setTargetNamespace(Singleton.DIRECTORY_NAMESPACE_URI);
+        definition.setSchema(directorySchema);
+
+        return definition;
+    }
+
+    @Bean
+    public XsdSchema directorySchema() {
+        return new SimpleXsdSchema(new ClassPathResource(Singleton.DIRECTORY_XSD_LOCATION));
+    }
+
 }

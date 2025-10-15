@@ -4,26 +4,30 @@ import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "file")
 @XmlRootElement(name = "File")
 @XmlAccessorType(XmlAccessType.FIELD)
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private @Getter @Setter Long id;
+    private Long id;
 
-    private @Getter @Setter String name;
-    private @Getter @Setter String path;
-    private @Getter @Setter Long sizeBytes;
-    private @Getter @Setter String mimeType;
+    private String name;
+    private String path;
+    private Long sizeBytes;
+    private String mimeType;
 
     @Column(name = "owner_id")
-    private @Getter @Setter Long ownerId;
+    private Long ownerId;
 
     @Column(name = "directory_id")
-    private @Getter @Setter Long directoryId;
+    private Long directoryId;
 }
