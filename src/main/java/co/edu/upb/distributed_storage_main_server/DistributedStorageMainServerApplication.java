@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DistributedStorageMainServerApplication {
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
 		SpringApplication.run(DistributedStorageMainServerApplication.class, args);
 	}
 
