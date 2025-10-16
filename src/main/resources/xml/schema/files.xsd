@@ -4,7 +4,30 @@
            xmlns:tns="http://example.com/files"
            elementFormDefault="qualified">
 
-    <!-- Request -->
+    <!-- ====================================================== -->
+    <!-- Upload File -->
+    <!-- ====================================================== -->
+    <xs:element name="UploadFileRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="filename" type="xs:string"/>
+                <xs:element name="fileData" type="xs:base64Binary"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UploadFileResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="success" type="xs:boolean"/>
+                <xs:element name="message" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ====================================================== -->
+    <!-- Get File -->
+    <!-- ====================================================== -->
     <xs:element name="GetFileRequest">
         <xs:complexType>
             <xs:sequence>
@@ -13,7 +36,6 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Response -->
     <xs:element name="GetFileResponse">
         <xs:complexType>
             <xs:sequence>
@@ -29,7 +51,9 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- DeleteFileById -->
+    <!-- ====================================================== -->
+    <!-- Delete File By Id -->
+    <!-- ====================================================== -->
     <xs:element name="DeleteFileByIdRequest">
         <xs:complexType>
             <xs:sequence>
@@ -46,7 +70,9 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- MoveRenameFile -->
+    <!-- ====================================================== -->
+    <!-- Move / Rename File -->
+    <!-- ====================================================== -->
     <xs:element name="MoveRenameFileRequest">
         <xs:complexType>
             <xs:sequence>
